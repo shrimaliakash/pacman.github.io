@@ -27,8 +27,26 @@
 }
 
 .pac-man {
-	background-color: yellow;
-	border-radius: 10px;
+  width:100px;
+  height:100px;
+  box-sizing:border-box;
+  padding-right:10px;
+  border-radius:50%;
+  background-image:linear-gradient(65deg,yellow, blue, purple);
+  background-clip:content-box;
+  position:relative;
+  overflow:hidden;
+}
+
+.pac-man:before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:50%;
+  background-image:inherit;
+  background-size:100% 200%;
 }
 
 .blinky {
