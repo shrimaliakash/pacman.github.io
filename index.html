@@ -4,11 +4,25 @@
 		<title>Pac Man Game</title>
 		<link rel="stylesheet" href="style.css"></link>
 		<script src="app.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			function startGame() {
+				const grid = document.getElementsByClassName('grid');
+				const start_game = document.getElementById('start_game');
+				const gameOver = document.getElementById('gameover');
+				grid[0].style.display = 'flex';
+				start_game.style.display = 'none';
+				gameOver.style.display = 'none';
+				window.location.reload();
+			}
+		</script>
 	</head>
 	<body>
+		<span id="gameover"></span>
+		<div class="container">
+		  <button class="btn" type="button" onclick="startGame()" id="start_game">Start</button>
+		</div>
 		<div class="grid">
 		</div>
-		<span id="gameover"></span>
 		<h3>Score: <span id="score">0</span></h3>
 
 	</body>
