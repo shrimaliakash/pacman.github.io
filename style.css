@@ -1,3 +1,7 @@
+body {
+	overflow: hidden;
+}
+
 .grid {
 	display: flex;
 	flex-wrap: wrap;
