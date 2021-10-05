@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const grid = document.querySelector('.grid');
 	const scoreDisplay = document.getElementById('score');
+	const start_game = document.getElementById('start_game');
 	const gameOver = document.getElementById('gameover');
 	const width = 28;
 	let score = 0;
+	start_game.style.display = 'none';
 
 	const layout = [
 		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	      score += 10;
 	      ghosts.forEach(ghost => ghost.isScared = true);
 	      setTimeout(unScareGhosts, 10000);
-	      squares[pacmanCurrentIndex].classList.remove('power-pellet');ff
+	      squares[pacmanCurrentIndex].classList.remove('power-pellet');
 	    }
 	}
 
@@ -183,15 +185,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		if(squares[pacmanCurrentIndex].classList.contains('ghost') && !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
 			ghosts.forEach(ghost => clearInterval(ghost.timerId));
 			document.removeEventListener('keyup', movePacman);
-			gameOver.innerHTML = 'Game Over!!!!!!';
+			grid.style.display = 'none';
+			start_game.style.display = 'inline';
+			gameOver.innerHTML = 'Game Over';
 		}
 	}
 
 	function checkForWin() {
-		if(score === 274) {
-			ghosts.forEach(ghost => clearInterval(ghost.timerId));
-			document.removeEventListener('keyup', movePacman);
-			scoreDisplay.innerHTML = 'You Win!!!!';
+		for ( i = 1; i <= 10; i++) {
+			if(score === 274 * i) {
+				createBoard();
+			}
 		}
 	}
 
