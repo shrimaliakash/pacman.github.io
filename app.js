@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const grid = document.querySelector('.grid');
 	const scoreDisplay = document.getElementById('score');
+	const level = document.getElementById('level');
 	const start_game = document.getElementById('start_game');
 	const gameOver = document.getElementById('gameover');
 	const width = 28;
 	let score = 0;
+	let j = 1;
 	start_game.style.display = 'none';
 
 	const layout = [
@@ -194,6 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	function checkForWin() {
 		for ( i = 1; i <= 10; i++) {
 			if(score === 274 * i) {
+				j++;
+				level.innerHTML = j;
 				createBoard();
 			}
 		}
